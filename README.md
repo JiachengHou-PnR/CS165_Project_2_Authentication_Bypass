@@ -1,5 +1,8 @@
 # CS165_Project_2_Authentication_Bypass
+
 CS 165 Project 2 (Fall 2021) University of California, Riverside.
+
+By anchit Goel and Jiacheng Hou.
 
 ## Helpful Files
 
@@ -20,47 +23,48 @@ To carry out the project, you need to understand a few things which will be cove
 - Stack layout
 - Function calling convention
 
-
-
-Part 1:  Local authentication bypass -- capture the flag: 
+### Part 1:  Local authentication bypass -- capture the flag: 
 
 In part 1 of the project, you will be asked to bypass the authentication used in a toy application created for this class. See authenticate_yourself.exe in the project folder. Upon successful authentication bypass, you will be awarded with a unique string that you can take to submit as part of the project outcome. 
 
-Workflow:
+#### Workflow:
+
 - Locate the critical function of authentication (Hints: What gets printed when authentication fails? Which Windows APIs are used to print results to command line?).
 - Understand how the authentication takes place. (Hints: Look at the branch, i.e., conditional jump instruction, that determines the outcome of the authentication.)
 - Change the instructions related to the branch so they are no longer effective.
 Note: You are welcome to propose your own workflow or tweak the existing one as long as it can achieve the same result. 
 
-Submission requirement: 
+#### Submission requirement: 
 - (1 points) Flag (unique string). 
 - (2 points) The modified binary that can print the flag (unique string) automatically or even when the credential was incorrect. 
 - (2 points) Documentation detailing the methodology and thought process that you went through to bypass the authentication. Figures can be used to illustrate the core program logic if needed. The document should include the instructions that are changed/added/deleted during the process in the form of (Address, Original Instruction, New Instruction). Please limit the document to 2 pages maximum (pdf or word). 
 
-Hints: 
+#### Hints: 
 - Debugging the program during runtime can be extremely helpful. IDA has a built-in debugger so you can set breakpoints and observe the program flow. Ollydbg and WinDbg are also great debuggers on Windows.
 - The instruction to patch a program is listed towards the end of the document. If you want to quickly test the effect of a patch, you can do so during a debugging session (it may not take any effect if you patch before starting the debugging session).
 
 
 
-Part 2: Real-world authentication bypass:
+### Part 2: Real-world authentication bypass:
 
 In part 2 of the project, you will be asked to change a real world application so you can continue using it after the trial period is over. The application can be downloaded at http://www.winedt.com/archive/winedt90-32.exe. Note that the methodology and workflow transfer directly from Part 1. However, the code base will be much more complex and it will be harder to locate the correct function that performed the check on trial period. 
 
-Hints: 
+#### Hints: 
+
 - All logic is inside WinEdt.exe. 
 - The software stores and checks the installation time in Windows Registry. 
 - The software prints out error messages ("trial period is over") that may be searchable in the binary. 
 - Debugging the program at runtime can allow you to see the actual value of memory and registers that otherwise cannot be seen statically.
 
 
-Submission requirement: 
+#### Submission requirement: 
+
 - (5 points) A modified WinEdt.exe that can be successfully launched either "1) without the "Expired Trial Period" banner at the top, or 2) without the pop-up reminding about the 31-day trial period" even when the local time is set to 1 year after the current time (verified by TA in labs).
 - (2 bonus points awarded) if both requirements above are met.
 - (6 points) Documentation detailing the methodology and thought process that you went through to bypass the authentication. Figures can be used to illustrate the core program logic if needed. The document should include the instructions that are changed/added/deleted during the process in the form of (Address, Original Instruction, New Instruction). Please limit the document to 2 pages maximum (pdf or word). You will still get partial credit for writing up your thought process and the difficulty you faced, even if you are not able to successfully modify WinEdt.exe.
 
 
-Instructions for patching a binary:
+#### Instructions for patching a binary:
 - Go to the cfg folder in your IDA installation directory (e.g., C:\Program Files (x86)\IDA Free\cfg). Open the idagui.cfg file and change the following setting to true "DISPLAY_PATCH_SUBMENU    = YES". Restart IDA so the menu will now appear under "Edit->Patch Program -> Change Byte/Change Word/Assemble". 
 - Use the menu to change the bytes at desired addresses. Note that the change only persists in memory and you will need to push the change to the binary. 
 - To make the change persistent, we need to produce a diff file through IDA's menu "File->Produce file->Create Dif file...".
@@ -71,7 +75,7 @@ Instructions for patching a binary:
 
 
 
-Academic Integrity and Legal implications:
+### Academic Integrity and Legal implications:
 
 Since this project is highly result-driven, it is strictly prohibited to share answers across teams. Teams are not allowed to share the step-by-step procedure of their reverse engineering directly with each other. However, discussions on the understanding of the binary and procedures are encouraged.
 
