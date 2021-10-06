@@ -9,6 +9,29 @@ By anchit Goel and Jiacheng Hou.
 1. IDA Free: https://hex-rays.com/ida-free/#download
 2. The IDA PRO Book: https://libgen.rs/book/index.php?md5=485167AC5D159164B5CAB270A8EDC3C7
 
+## Part 1 Implementation
+
+### Flag
+
+The flag is:
+            
+    34gdfh340234
+
+### Bypass Username Check
+
+From examine the code, we see the username "admin"'s offset location is moved to ecx (in function sub_401080, address 0x1 0x4010D0), and the inputed username address is loaded to eax then the username is loaded to dl. 
+
+1. At address 0x1 0x4010D7, change `cmp    dl, [ecx]` to `cmp    dl, [eax]` to bypass the comparison of username's first char.
+2. At address 0x1 0x4010E2, change `cmp    dl, [ecx+1]` to `cmp    dl, [eax+1]` to bypass the second check.
+
+### Bypass Password Check
+
+Similar to bypassing username check, we modified the code where the inputed password is compared to the stored password, and changed the comparision code to be comparing to itself and always be true, therefore bypassing the password check.
+
+## Part 2 Implementation
+
+
+
 ## From Project Description
 
 (Made for CS 165 @ UCR. Academic purposes only. Please do not redistribute)
