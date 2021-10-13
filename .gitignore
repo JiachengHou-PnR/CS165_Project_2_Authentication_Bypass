@@ -1,0 +1,3 @@
+# Ignore IDA files
+*.ida
+*.i64
