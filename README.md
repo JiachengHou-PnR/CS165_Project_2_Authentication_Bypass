@@ -2,7 +2,7 @@
 
 CS 165 Project 2 (Fall 2021) University of California, Riverside.
 
-By anchit Goel and Jiacheng Hou.
+By Sanchit Goel and Jiacheng Hou.
 
 ## Helpful Files
 
@@ -30,6 +30,24 @@ Similar to bypassing username check, we modified the code where the inputed pass
 
 ## Part 2 Implementation
 
+### Fix Banner
+
+Text on top of window: function sub_76B074
+
+1. Search 'trial'
+2. Find strings
+3. 'List cross references to...' at "aTrial..."
+4. Go to function sub_76B074
+
+### Register Window Code 
+
+sub_76B784
+
+### f
+
+sub_76C12C
+
+sub_76C290
 
 
 ## From Project Description

@@ -1,3 +1,8 @@
 # Ignore IDA files
 *.ida
 *.i64
+*.id2
+*.til
+
+# Ignore MacOS files
+.DS_Store
