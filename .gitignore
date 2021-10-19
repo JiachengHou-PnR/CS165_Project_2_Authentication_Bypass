@@ -1,8 +1,14 @@
 # Ignore IDA files
 *.ida
 *.i64
+*.id0
+*.id1
 *.id2
 *.til
+.nam
 
 # Ignore MacOS files
 .DS_Store
+
+# Ignore VS Code files
+.vscode
