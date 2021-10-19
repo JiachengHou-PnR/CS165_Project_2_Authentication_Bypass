@@ -12,3 +12,8 @@
 
 # Ignore VS Code files
 .vscode
+
+# Ignore Part 2 program files except .exe
+!Part_2/WinEdt9/
+Part_2/WinEdt9/*
+!Part_2/WinEdt9/*.exe
