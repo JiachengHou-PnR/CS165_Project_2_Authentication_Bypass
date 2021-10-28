@@ -40,13 +40,13 @@ Now we can work on bypassing the authentication.
 
 Here is an overview of the logic of the function:
 
-![logic overview](Part_1/Diagrams/sub_401080.svg)
+![logic overview](/Diagrams/sub_401080.svg)
 
 ### Bypassing Username Check
 
 Here is a closer look on how the function checks if the user enters the correct username:
 
-![check username logic](Part_1/Diagrams/Check%20Username.svg)
+![check username logic](/Diagrams/Check%20Username.svg)
 
 We can see, the function compares the inputted username against the correct username Using a loop. Each loop, it checks if the bytes are the same and if the byte in the inputted username is zero (indication it has reached the end.) [^source]
 
@@ -64,9 +64,9 @@ To bypass the username check, instead of comparing the byte from the inputted us
 
 Similarly, we changed the comparison on the next byte of the username to always be true.
 
-|     | Before | After |     |
-| --- | :----: | :---: | --- |
-|     | ![Username original](Part_1/Diagrams/Username_og.png) | ![Username patched](Part_1/Diagrams/Username_patch.png) |     |
+| Before | After |
+| :----: | :---: |
+| ![Username original](/Diagrams/Username_og.png) | ![Username patched](/Diagrams/Username_patch.png) |
 
 By making the changes above, we successfully bypassed the program's username check and the program now always accepts the inputted username. 
 
