@@ -16,21 +16,21 @@ In this part, our main goal is to bypass the authentication used in a toy applic
 
 Running the program in PowerShell, and entering random strings as username and password, we got:
 
-![original username](Part_1/Diagrams/original_username.png)
+![original username](/Diagrams/original_username.png)
 
 ### Locating the function
 
 To locate the function where the authentication is performed, we searched "username" using the search text function of IDA and found the string 'Please enter your username and password to be authenticated:'.
 
-![search "username"](Part_1/Diagrams/Search_string.png)
+![search "username"](/Diagrams/Search_string.png)
 
 Then we use "Jump to xref operand..." and saw the string is used in address `sub_401080+10`
 
-![xref](Part_1/Diagrams/Select_function.png)
+![xref](/Diagrams/Select_function.png)
 
 And clicking on "OK" brought us to function `sub_401080` and this is the function that performs the authentication.
 
-![part of sub_401080](Part_1/Diagrams/sub_401080_part.png)
+![part of sub_401080](/Diagrams/sub_401080_part.png)
 
 Now we can work on bypassing the authentication.
 
@@ -72,7 +72,7 @@ By making the changes above, we successfully bypassed the program's username che
 
 After entering a random string as username, we got:
 
-![username patched](Part_1/Diagrams/username_patched.png)
+![username patched](/Diagrams/username_patched.png)
 
 Next was to bypass password check.
 
@@ -88,7 +88,7 @@ We made the similar changes to the comparisons so they would always be true.
 
 | Before | After |
 | :----: | :---: |
-| ![Password original](Part_1/Diagrams/Password_og.png) | ![Password patched](Part_1/Diagrams/Password_patch.png) |
+| ![Password original](/Diagrams/Password_og.png) | ![Password patched](/Diagrams/Password_patch.png) |
 
 We successfully bypassed the program's password check as well.
 
